@@ -24,7 +24,7 @@
 		<springSocialTwitterVersion>1.1.2.RELEASE</springSocialTwitterVersion>
 		<springSocialLinkedInVersion>1.0.2.RELEASE</springSocialLinkedInVersion>
 		<springVersion>4.3.4.RELEASE</springVersion>
-		<thymeleafVersion>3.0.2.RELEASE</thymeleafVersion>
+		<thymeleafVersion>3.0.3.RELEASE</thymeleafVersion>
 		<thymeleafLayoutVersion>2.1.2</thymeleafLayoutVersion>
 		<tomcatVersion>8.5.2</tomcatVersion>
 		<cglibVersion>3.2.4</cglibVersion>

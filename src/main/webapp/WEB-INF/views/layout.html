@@ -5,8 +5,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Social login using Spring social Example</title>
-		<meta name="description" content="website description" />
-		<meta name="keywords" content="website keywords, website keywords" />
+		<meta name="description" content="Spring Social Login showcase" />
+		<meta name="keywords" content="spring social login facebook twitter linkedin" />
 		<link rel="stylesheet" th:href="@{/resources/style.css}" type="text/css" media="screen"></link>
 		<!--<link rel="stylesheet" th:href="@{/resources/form.css}" type="text/css" media="screen"></link>-->
 		<!--<link rel="stylesheet" th:href="@{/resources/messages/messages.css}" type="text/css" media="screen"></link>-->
@@ -41,7 +41,7 @@
 					<form method="post" action="#" id="search_form">
 						<p>
 							<input class="search" type="text" name="search_field" value="Enter keywords....." />
-							<input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
+							<input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" th:src="@{/resources/icon/search.png}" alt="Search" title="Search" />
 						</p>
 					</form>
 

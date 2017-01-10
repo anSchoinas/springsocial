@@ -32,9 +32,9 @@
           <element id="library" level="project" name="Maven: org.springframework.social:spring-social-twitter:1.1.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-crypto:3.2.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.social:spring-social-linkedin:1.0.2.RELEASE" />
-          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf-spring4:3.0.2.RELEASE" />
-          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf:3.0.2.RELEASE" />
-          <element id="library" level="project" name="Maven: org.attoparser:attoparser:2.0.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf-spring4:3.0.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf:3.0.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.attoparser:attoparser:2.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.unbescape:unbescape:1.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.1.2" />
           <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy:2.4.6" />
