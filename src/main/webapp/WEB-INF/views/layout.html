@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:social="http://spring.io/springsocial"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<meta charset="utf-8" />
+		<title>Social login using Spring social Example</title>
+		<meta name="description" content="website description" />
+		<meta name="keywords" content="website keywords, website keywords" />
+		<link rel="stylesheet" th:href="@{/resources/style.css}" type="text/css" media="screen"></link>
+		<!--<link rel="stylesheet" th:href="@{/resources/form.css}" type="text/css" media="screen"></link>-->
+		<!--<link rel="stylesheet" th:href="@{/resources/messages/messages.css}" type="text/css" media="screen"></link>-->
+	</head>
+	<body>
+
+		<div id="header" layout:fragment="header">
+			<div id="logo">
+				<div id="logo_text">
+					<!-- class="logo_colour", allows you to change the colour of the text -->
+					<h1><a th:href="@{/}">Social Login <span class="logo_colour">demo</span></a></h1>
+					<h2>Demo example to demonstrate the capabilities, social platform login can provide.</h2>
+				</div>
+			</div>
+			<div id="menubar">
+				<ul id="menu">
+					<!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+					<!--<li class="selected"><a href="index.html">Home</a></li>-->
+					<!--<li><a href="examples.html">Examples</a></li>-->
+					<!--<li><a href="page.html">A Page</a></li>-->
+					<!--<li><a href="another_page.html">Another Page</a></li>-->
+					<!--<li><a href="contact.html">Contact Us</a></li>-->
+				</ul>
+			</div>
+		</div>
+
+		<div id="site_content">
+			<th:block layout:fragment="leftMenu">
+				<div id="leftNav" class="sidebar">
+
+					<h3>Search</h3>
+					<form method="post" action="#" id="search_form">
+						<p>
+							<input class="search" type="text" name="search_field" value="Enter keywords....." />
+							<input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
+						</p>
+					</form>
+
+					<h4><a th:href="@{/connect}">Connections</a></h4>
+
+					<h3><a th:href="@{/twitter}">Twitter</a></h3>
+					<div social:connected="twitter" class="menu">
+						<ul>
+							<li><a th:href="@{/twitter}">User Profile</a></li>
+							<li><a th:href="@{/twitter/timeline}">Timeline</a></li>
+							<li><a th:href="@{/twitter/friends}">Friends</a></li>
+							<li><a th:href="@{/twitter/followers}">Followers</a></li>
+							<li><a th:href="@{/twitter/messages}">Messages</a></li>
+							<li><a th:href="@{/twitter/trends}">Trends</a></li>
+						</ul>
+					</div>
+
+					<h3><a th:href="@{/facebook}">Facebook</a></h3>
+					<div social:connected="facebook">
+					<ul>
+						<li><a th:href="@{/facebook}">User Profile</a></li>
+						<li><a th:href="@{/facebook/feed}">Feed</a></li>
+						<li><a th:href="@{/facebook/friends}">Friends</a></li>
+						<li><a th:href="@{/facebook/albums}">Albums</a></li>
+					</ul>
+					</div>
+
+					<h3><a th:href="@{/linkedin}">LinkedIn</a></h3>
+					<div social:connected="linkedin">
+					<ul>
+						<li><a th:href="@{/linkedin}">User Profile</a></li>
+						<li><a th:href="@{/linkedin/connections}">Connections</a></li>
+					</ul>
+					</div>
+				</div>
+			</th:block>
+
+			<div id="content" layout:fragment="content">
+				Content goes here
+			</div>
+		</div>
+
+		<div id="footer" layout:fragment="footer">
+			<address>Copyright &copy; Andreas Schoinas | Email: <a href="mailto:schoinas.andreas@gmail.com">schoinas.andreas@gmail.com</a> | Linkedin:<a href="https://www.linkedin.com/in/andreasschoinas" target="_blank"> Andreas Schoinas </a></address>
+		</div>
+	</body>
+</html>

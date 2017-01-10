@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:social="http://spring.io/springsocial"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout">
+	<head>
+		<title>Social login using Spring social Demo</title>
+		<!--<link rel="stylesheet" th:href="@{/resources/page.css}" type="text/css" media="screen"></link>-->
+		<!--<link rel="stylesheet" th:href="@{/resources/form.css}" type="text/css" media="screen"></link>-->
+		<!--<link rel="stylesheet" th:href="@{/resources/messages/messages.css}" type="text/css" media="screen"></link>-->
+		<meta name="description" content="website description" />
+		<meta name="keywords" content="website keywords, website keywords" />
+		<link rel="stylesheet" th:href="@{/resources/style.css}" type="text/css" media="screen"></link>
+
+	</head>
+	<body>
+
+		<th:block layout:fragment="leftMenu">
+			<div id="leftNav" class="sidebar">
+				<!--menu-->
+			</div>
+		</th:block>
+		<div id="site_content">
+			<div id="content" layout:fragment="content">
+				<form id="signin" th:action="@{/signin/authenticate}" method="post">
+					<input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>
+					<div class="formInfo" th:switch="${paramError}">
+						<div class="error" th:case="bad_credentials">
+							Your sign in information was incorrect.
+							Please try again or <a th:href="@{/signup}">sign up</a>.
+						</div>
+						<div class="error" th:case="multiple_users">
+							Multiple local accounts are connected to the provider account.
+							Try again with a different provider or with your username and password.
+						</div>
+						<div th:case="*">
+
+						</div>
+					</div>
+					<h3>
+						Please login using you credentials
+					</h3>
+					<!--<fieldset>-->
+						<label for="login">Username</label>
+						<input id="login" name="username" type="text" size="25"></input>
+						<label for="password">Password</label>
+						<input id="password" name="password" type="password" size="25"></input>
+					<!--</fieldset>-->
+					<button type="submit">Sign In</button>
+
+					<p>Some test user/password pairs you may use are:</p>
+					<ul>
+						<li>habuma/freebirds</li>
+						<li>kdonald/melbourne</li>
+						<li>rclarkson/atlanta</li>
+					</ul>
+
+					<p>Or you can <a th:href="@{/signup}">signup</a> with a new account.</p>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

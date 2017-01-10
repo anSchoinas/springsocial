@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:social="http://spring.io/springsocial"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout">
+	<head>
+		<title>Social login using Spring social Example</title>
+		<link rel="stylesheet" th:href="@{/resources/page.css}" type="text/css" media="screen"></link>
+		<link rel="stylesheet" th:href="@{/resources/form.css}" type="text/css" media="screen"></link>
+		<link rel="stylesheet" th:href="@{/resources/messages/messages.css}" type="text/css" media="screen"></link>
+	</head>
+	<body>
+
+		<!--<div layout:include="layout :: leftMenu"  th:remove="tag">-->
+
+		<div id="site_content">
+			<div id="content" layout:fragment="content">
+			<p>Welcome, <span th:text="${account.firstName}">first-name</span>!</p>
+
+			<div th:switch="${fbLoggedIn}">
+				<div th:case="true">
+
+					<h3>Your Facebook Profile</h3>
+
+					<dl>
+						<dt>Facebook name:</dt>
+						<dd th:text="${FBProfile.firstName}"></dd>
+						<dt>Facebook ID:</dt>
+						<dd th:text="${FBProfile.id}"></dd>
+						<dt>Name:</dt>
+						<dd th:text="${FBProfile.name}"></dd>
+						<dt>Email:</dt>
+						<dd th:text="${email}"></dd>
+					</dl>
+
+					<form id="disconnect" th:action="@{/connect/facebook}" method="post">
+						<input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+						<button type="submit">Disconnect from Facebook</button>
+						<input type="hidden" name="_method" value="delete" />
+					</form>
+				</div>
+				<div th:case="*">
+					<form th:action="@{/connect/facebook}" method="POST">
+						<input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+						<input type="hidden" name="scope" value="read_stream,user_posts,user_photos,user_tagged_places" />
+						<div class="formInfo">
+							<p>You aren't connected to Facebook yet. Click the button to connect Spring Social Showcase with your Facebook account.</p>
+						</div>
+						<p><button type="submit"><img th:src="@{/resources/social/facebook/connect_light_medium_short.gif}"/></button></p>
+						<label for="postToWall"><input id="postToWall" type="checkbox" name="postToWall" /> Tell your friends about Spring Social Showcase on your Facebook wall</label>
+					</form>
+				</div>
+			</div>
+
+			<form method="POST" th:action="@{/signout}">
+				<input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+				<button>Sign Out</button>
+			</form>
+		</div>
+		</div>
+	</body>
+</html>
