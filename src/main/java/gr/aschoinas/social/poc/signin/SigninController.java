@@ -30,6 +30,8 @@ public class SigninController {
 
 		if(error != null && !"".equals(error)) {
 			model.addAttribute("paramError", error);
+			model.addAttribute("Hello","world");
+			model.addAttribute("Hello2","world2");
 		}
 		return "signin";
 

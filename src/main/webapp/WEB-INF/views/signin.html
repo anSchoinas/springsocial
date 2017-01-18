@@ -15,7 +15,14 @@
 	</head>
 	<body>
 
-		<th:block layout:fragment="leftMenu">
+	<table layout:fragment="gamw">
+		<tr th:each="var : ${#vars}">
+			<td th:text="${var.key}">11</td>
+			<td th:text="${var.value}">22</td>
+		</tr>
+	</table>
+
+	<th:block layout:fragment="leftMenu">
 			<div id="leftNav" class="sidebar">
 				<!--menu-->
 			</div>

@@ -13,10 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package gr.aschoinas.social.poc.account;
+package gr.aschoinas.social.poc.persistence;
 
-public class UsernameAlreadyInUseException extends Exception {
-	public UsernameAlreadyInUseException(String username) {
-		super("The username '" + username + "' is already in use.");
-	}
+import gr.aschoinas.social.poc.entity.Account;
+import org.springframework.social.connect.ConnectionData;
+
+public interface AccountRepository {
+	
+	void createAccount(Account account) throws UsernameAlreadyInUseException;
+
+	Account findAccountByUsername(String username);
+
+	ConnectionData getFacebookDataByUserId(String userId);
+	
 }

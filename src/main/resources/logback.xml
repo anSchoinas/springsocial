@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+	<!-- uncomment this to enable scanning this file for changes -->
+	<!--<configuration scan="true">-->
+	<contextName>SocialWeb</contextName>
+
+	<!-- default STDOUT appender - not to be used -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- main log appender -->
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!--jboss.server.log.dir points to wildfly(...)/standalone/logs directory-->
+		<file>${jboss.server.log.dir}/springSocial/social-web.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover, GZipped archive -->
+			<fileNamePattern>${jboss.server.log.dir}/springSocial/social-web.%d.log.gz</fileNamePattern>
+		</rollingPolicy>
+		<!-- default PatternLayoutEncoder -->
+		<encoder>
+			<!--<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+			<pattern>%d %-5level %logger - %msg%n</pattern>
+			<!-- this can quadruple logging throughput -->
+			<!--<immediateFlush>false</immediateFlush>-->
+		</encoder>
+	</appender>
+
+	<logger name="gr.aschoinas.social.poc" level="DEBUG"/>
+
+	<root level="INFO">
+		<appender-ref ref="file" />
+	</root>
+</configuration>

@@ -20,13 +20,16 @@ import java.security.Principal;
 import javax.inject.Inject;
 import javax.inject.Provider;
 
-import gr.aschoinas.social.poc.account.AccountRepository;
+import gr.aschoinas.social.poc.persistence.AccountRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
 public class HomeController {
@@ -37,6 +40,8 @@ public class HomeController {
 
 	@Inject
 	private ConnectionRepository connectionRepository;
+
+	private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
 
 	@Inject
 	public HomeController(Provider<ConnectionRepository> connectionRepositoryProvider, AccountRepository accountRepository) {
@@ -54,6 +59,7 @@ public class HomeController {
 		}
 		model.addAttribute("connectionsToProviders", getConnectionRepository().findAllConnections());
 		model.addAttribute(accountRepository.findAccountByUsername(currentUser.getName()));
+		LOG.info("yay");
 		return "home";
 	}
 	

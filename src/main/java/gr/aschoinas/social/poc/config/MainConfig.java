@@ -17,7 +17,7 @@ package gr.aschoinas.social.poc.config;
 
 import javax.sql.DataSource;
 
-import gr.aschoinas.social.poc.account.JdbcAccountRepository;
+import gr.aschoinas.social.poc.persistence.JdbcAccountRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
@@ -49,7 +49,7 @@ public class MainConfig {
 	@Bean(destroyMethod = "shutdown")
 	public DataSource dataSource() {
 		EmbeddedDatabaseFactory factory = new EmbeddedDatabaseFactory();
-		factory.setDatabaseName("spring-social-showcase");
+		factory.setDatabaseName("spring-social-demo");
 		factory.setDatabaseType(EmbeddedDatabaseType.H2);
 		factory.setDatabasePopulator(databasePopulator());
 		return factory.getDatabase();
